@@ -73,9 +73,9 @@ module.exports = {
     'import/extensions': [
       2, // 0은 규칙을 비활성화, 1은 경고, 2는 오류로 규칙을 적용
       {
-        // 패키지(import가 node_modules로부터 하는 경우 등)에 대해서는 확장자를 포함하지 않아도 됩니다
-        ignorePackages: true,
         // 아래 확장자들은 포함하지 않아도됨.
+        svg: 'always',
+        json: 'always',
         js: 'never',
         jsx: 'never',
         ts: 'never',
