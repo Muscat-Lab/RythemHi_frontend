@@ -37,3 +37,7 @@ next-env.d.ts
 
 # cache
 .eslintcache
+
+# icon
+
+src/assets/icon
