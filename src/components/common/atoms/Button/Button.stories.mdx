@@ -1,0 +1,39 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+import Button from '.';
+
+<Meta title="atoms/Button" component={Button} />
+
+# Button
+
+모든 페이지에서 사용되어지는 버튼 컴포넌트 입니다.
+
+# Props
+
+```ts
+interface ButtonProps {
+  // 버튼 children Element (버튼에 들어가는 텍스트)
+  children: React.ReactNode;
+  // button의 사이즈 단위! 'small', 'medium','large'가 있다.
+  inputSize: SizeType;
+  // 기본 상태 or 입력 성공 or 실패에 따라 background-color가 다르게 입혀진다. 'default', 'success', 'error'가 있다.
+  variant?: VariantType;
+  // Custom class
+  className?: string;
+}
+```
+
+### Button  
+
+<h4>* 로그인 예시 *</h4>
+
+<div>
+  <Button
+    type="button"
+    butotnSize="medium"
+    variantType="default"
+    onClick={() => console.log("validation after to login api call")}
+  >
+    로그인
+  </Button>
+</div>
