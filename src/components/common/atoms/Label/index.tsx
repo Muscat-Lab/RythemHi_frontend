@@ -12,14 +12,14 @@ type BoldType = 'light' | 'normal' | 'bold';
 type VariantType = 'success' | 'error';
 
 interface LabelProps {
-  children: React.ReactChild;
+  children: React.ReactNode;
   labelSize: SizeType;
   labelType?: BoldType;
   variant?: VariantType;
   className?: string;
 }
 
-const StyledLabel = styled.span<LabelProps>`
+const StyledLabel = styled.label<LabelProps>`
   display: inline-block;
   line-height: 16px;
   font-size: ${({ labelSize }) => {
@@ -71,7 +71,7 @@ const Label = ({
   variant,
   className,
   ...labelAttr
-}: LabelProps & React.HTMLAttributes<HTMLSpanElement>) => (
+}: LabelProps & React.HTMLAttributes<HTMLLabelElement>) => (
   <StyledLabel
     labelSize={labelSize}
     labelType={labelType}
