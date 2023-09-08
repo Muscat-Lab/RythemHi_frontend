@@ -10,6 +10,7 @@ interface InputProps {
   className?: string;
 }
 
+// TODO: 디자인이 나오면 inputSize(width, height) 조정 필요.
 const StyledInput = styled.input<InputProps>`
   outline: none;
   border-width: 0 0 1px;
