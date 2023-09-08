@@ -19,20 +19,19 @@ const SignInInput = () => {
       <Input
         type="email"
         name="email"
-        placeholder="이메일 주소"
+        inputSize="small"
+        placeholder="email 입력하기"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
-        width="300px"
       />
       <br />
       <Input
         type="password"
         name="password"
+        inputSize="medium"
         placeholder="영문, 숫자, 특수문자 조합 6자 이상"
-        value={password}
-        minLength="6"
-        width="300px"
         onChange={(e) => setPassword(e.target.value)}
+        value={password}
       />
     </>
   );

@@ -1,36 +1,61 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
+type SizeType = 'small' | 'medium' | 'large';
+type VariantType = 'success' | 'error';
+
 interface InputProps {
-  type: string;
-  name: string;
-  placeholder?: string;
-  value: string | number;
-  minLength?: string;
-  width?: string;
-  onChange: (
-    // eslint-disable-next-line no-unused-vars
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => void;
+  inputSize: SizeType;
+  variant?: VariantType;
+  className?: string;
 }
 
 const StyledInput = styled.input<InputProps>`
   outline: none;
   border-width: 0 0 1px;
-  border-color: #e6e6e6;
   padding: 16px;
   color: #1d232e;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  width: ${(inputProps) => inputProps.width};
 
-  ${(inputProps) =>
-    inputProps.type === 'password' &&
-    `
-    font-family: caption;
-  `}
+  width: ${({ inputSize }) => {
+    switch (inputSize) {
+      case 'small':
+        return '200px';
+      case 'medium':
+        return '300px';
+      case 'large':
+        return '400px';
+      default:
+        return '300px';
+    }
+  }};
+
+  height: ${({ inputSize }) => {
+    switch (inputSize) {
+      case 'small':
+        return '30px';
+      case 'medium':
+        return '40px';
+      case 'large':
+        return '50px';
+      default:
+        return '40px';
+    }
+  }};
+
+  border-color: ${({ variant }) => {
+    switch (variant) {
+      case 'success':
+        return 'green';
+      case 'error':
+        return '#F00';
+      default:
+        return '#e6e6e6';
+    }
+  }};
 
   &::placeholder {
     color: #8f8f8f;
@@ -64,22 +89,17 @@ const StyledInput = styled.input<InputProps>`
 `;
 
 const Input = ({
-  type,
-  name,
-  placeholder,
-  value,
-  minLength,
-  width,
-  onChange,
-}: InputProps) => (
+  variant,
+  inputSize,
+  className,
+  ...inputAttr
+}: InputProps &
+  React.InputHTMLAttributes<HTMLInputElement>) => (
   <StyledInput
-    type={type}
-    name={name}
-    placeholder={placeholder}
-    value={value}
-    minLength={minLength}
-    width={width}
-    onChange={onChange}
+    inputSize={inputSize}
+    variant={variant}
+    className={className}
+    {...inputAttr}
   />
 );
 

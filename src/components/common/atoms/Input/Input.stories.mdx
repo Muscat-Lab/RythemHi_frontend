@@ -12,29 +12,10 @@ import Input from '.';
 
 ```ts
 interface InputProps {
-  // input 타입
-  type: string;
-
-  // input 이름
-  name: string;
-
-  // input placeholder
-  placeholder?: string;
-
-  // input안에 들어가는 값
-  value: string | number;
-
-  // 최소 길이 제한
-  minLength?: string;
-
-  // 길이 (현재 password의 폰트가 달라서 기준 사이즈 정해주어야 일치함!)
-  width: string;
-
-  // 입력값을 받는 함수
-  onChange: (
-    // eslint-disable-next-line no-unused-vars
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => void;
+  // input의 사이즈 단위! 'small', 'medium','large'가 있다.
+  inputSize: SizeType;
+  // 입력 성공 or 실패에 따라 border-color를 다르게 주기! 'success', 'error'가 있다.
+  variant?: VariantType;
 }
 ```
 
@@ -42,20 +23,29 @@ interface InputProps {
 
 <h4>* 로그인 예시 *</h4>
 <div>
+
   <Input
-    type="email"
-    name="email"
-    placeholder="이메일 입력"
-    value={'rhythmhi@rhythm.hi'}
-    width="200px"
-  />
+        type="email"
+        name="email"
+        inputSize="small"
+        placeholder="email 입력"
+        value={'rhythmhi@rhythm.hi'}
+      />
 </div>
 <div>
   <Input
     type="password"
-    name="password"
+    inputSize="small"
+    variant="error"
     placeholder="영문, 숫자, 특수문자 조합 6자 이상"
-    value={'rhythmhi@'}
-    width="200px"
+    value={'rhy'}
+  />
+  <br />
+  <Input
+    type="password"
+    inputSize="small"
+    variant="success"
+    placeholder="영문, 숫자, 특수문자 조합 6자 이상"
+    value={'rhy123123'}
   />
 </div>
