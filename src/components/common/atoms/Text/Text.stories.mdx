@@ -16,11 +16,14 @@ interface InputProps {
   children: React.ReactChild;
 
   //텍스트의 크기!
-  //'extraSmall', 'small', 'medium', 'large', 'extraLarge' 5가지 사이즈가 있다
+  //'extraSmall', 'small', 'medium', 'large', 'extraLarge' 5가지 사이즈가 있다.
   textSize: SizeType;
 
   // 텍스트의 굵기! 'light', 'normal', 'bold'의 3가지 사이즈가 있다.
   textType?: BoldType;
+
+  //텍스트 종류에 따른 색상 주기! 'title', 'subTitle' 2가지 사이즈가 있다.
+  variant?: VariantType;
 
   // 추가 스타일 클래스가 있을때 사용!
   className?: string;

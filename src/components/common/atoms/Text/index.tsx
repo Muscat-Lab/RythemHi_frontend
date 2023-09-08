@@ -67,11 +67,15 @@ const StyledText = styled.span<TextProps>`
 const Text = ({
   children,
   textSize,
+  textType,
+  variant,
   className,
   ...textAttr
 }: TextProps & React.HTMLAttributes<HTMLSpanElement>) => (
   <StyledText
     textSize={textSize}
+    textType={textType}
+    variant={variant}
     className={className}
     {...textAttr}
   >
