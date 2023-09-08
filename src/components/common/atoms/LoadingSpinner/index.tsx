@@ -8,46 +8,44 @@ interface LodingProps {
 }
 
 const rotation = keyframes`
-    from{
-        transform: rotate(0deg);
-    }
-
-    to{
-        transform: rotate(360deg);
-    }
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+     transform: rotate(360deg);
+  }
 `;
 
 const StyledSpinner = styled.div<LodingProps>`
   width: ${({ loadingSize }) => {
     switch (loadingSize) {
       case 'small':
-        return '30px';
+        return '40px';
       case 'medium':
-        return '40px';
-      case 'large':
         return '50px';
+      case 'large':
+        return '60px';
       default:
-        return '40px';
+        return '50px';
     }
   }};
 
   height: ${({ loadingSize }) => {
     switch (loadingSize) {
       case 'small':
-        return '30px';
+        return '40px';
       case 'medium':
-        return '40px';
-      case 'large':
         return '50px';
+      case 'large':
+        return '60px';
       default:
-        return '40px';
+        return '50px';
     }
   }};
 
-  border: 2px solid #6d12cf;
+  border: 16px solid #f6f6f6;
   border-radius: 50%;
-  border-top: none;
-  border-right: none;
+  border-top: 16px #6d12cf solid;
   margin: 16px auto;
   animation: ${rotation} 2s linear infinite;
 `;
