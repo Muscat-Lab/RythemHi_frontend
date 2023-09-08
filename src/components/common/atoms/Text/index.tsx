@@ -12,7 +12,7 @@ type BoldType = 'light' | 'normal' | 'bold';
 type VariantType = 'title' | 'subTitle';
 
 interface TextProps {
-  children: React.ReactChild;
+  children: React.ReactNode;
   textSize: SizeType;
   textType?: BoldType;
   variant?: VariantType;
