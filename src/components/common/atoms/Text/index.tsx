@@ -9,11 +9,13 @@ type SizeType =
   | 'extraLarge';
 
 type BoldType = 'light' | 'normal' | 'bold';
+type VariantType = 'title' | 'subTitle';
 
 interface TextProps {
   children: React.ReactChild;
   textSize: SizeType;
   textType?: BoldType;
+  variant?: VariantType;
   className?: string;
 }
 
@@ -47,6 +49,17 @@ const StyledText = styled.span<TextProps>`
         return '800';
       default:
         return '400';
+    }
+  }};
+
+  color: ${({ variant }) => {
+    switch (variant) {
+      case 'title':
+        return '#1D232E';
+      case 'subTitle':
+        return '#8F8F8F';
+      default:
+        return '#1D232E';
     }
   }};
 `;

@@ -10,8 +10,12 @@ const meta: Meta<typeof Text> = {
 export default meta;
 
 const SmallTextComponent = () => (
-  <Text textSize="medium" textType="bold">
-    RhythmHi
+  <Text
+    textSize="small"
+    textType="normal"
+    variant="subTitle"
+  >
+    이번주 추가된 신상 카페
   </Text>
 );
 
@@ -20,8 +24,8 @@ export const SmallText = {
 };
 
 const MediumTextComponent = () => (
-  <Text textSize="small" textType="normal">
-    이번주 추가된 신상 카페
+  <Text textSize="medium" textType="bold">
+    RhythmHi
   </Text>
 );
 
