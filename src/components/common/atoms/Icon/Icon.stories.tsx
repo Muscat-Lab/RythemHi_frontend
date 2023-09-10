@@ -11,8 +11,16 @@ export default meta;
 
 const PrimitiveSVGIcons = () => (
   <>
-    <Icon iconName="homeIcon" size={32} color="grey040" />
-    <Icon iconName="searchIcon" size={32} color="grey040" />
+    <Icon
+      iconName="homeIcon"
+      iconSize="small"
+      color="grey040"
+    />
+    <Icon
+      iconName="searchIcon"
+      iconSize="small"
+      color="grey040"
+    />
   </>
 );
 
