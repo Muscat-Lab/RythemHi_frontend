@@ -12,26 +12,28 @@ export default meta;
 
 const SignInInput = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
 
   return (
     <>
       <Input
-        type="email"
+        type="search"
         name="email"
         inputSize="small"
-        placeholder="email 입력하기"
+        placeholder="kimstub@naver.com"
         onChange={(e) => setEmail(e.target.value)}
+        active={email.length > 0 ? 'active' : 'none'}
         value={email}
       />
-      <br />
+      <div style={{ marginBottom: '10px' }} />
       <Input
-        type="password"
-        name="password"
-        inputSize="medium"
-        placeholder="영문, 숫자, 특수문자 조합 6자 이상"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
+        type="search"
+        name="email"
+        inputSize="small"
+        placeholder="01012345678"
+        onChange={(e) => setPhone(e.target.value)}
+        active={phone.length > 0 ? 'active' : 'none'}
+        value={phone}
       />
     </>
   );

@@ -3,22 +3,31 @@ import { styled } from 'styled-components';
 
 type SizeType = 'small' | 'medium' | 'large';
 type VariantType = 'success' | 'error';
+type ActiveType = 'active' | 'none';
 
 interface InputProps {
   inputSize: SizeType;
   variant?: VariantType;
+  active?: ActiveType;
   className?: string;
 }
 
+// TODO: 디자인이 나오면 inputSize(width, height) 조정 필요.
 const StyledInput = styled.input<InputProps>`
   outline: none;
-  border-width: 0 0 1px;
-  padding: 16px;
-  color: #1d232e;
+  padding: 15px 11px;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
+
+  color: ${({ variant }) => {
+    switch (variant) {
+      case 'success':
+        return '#1c1c1c';
+      case 'error':
+        return '#D61C1C';
+      default:
+        return '#1c1c1c';
+    }
+  }};
 
   width: ${({ inputSize }) => {
     switch (inputSize) {
@@ -33,46 +42,59 @@ const StyledInput = styled.input<InputProps>`
     }
   }};
 
-  height: ${({ inputSize }) => {
-    switch (inputSize) {
-      case 'small':
-        return '30px';
-      case 'medium':
-        return '40px';
-      case 'large':
-        return '50px';
+  height: 51px;
+
+  border: ${({ variant }) => {
+    switch (variant) {
+      case 'success':
+        return '1.5px solid #4845CC';
+      case 'error':
+        return '1.5px solid #D61C1C';
       default:
-        return '40px';
+        return '1.5px solid #3D3D3D';
     }
   }};
 
-  border-color: ${({ variant }) => {
-    switch (variant) {
-      case 'success':
-        return 'green';
-      case 'error':
-        return '#F00';
+  border-radius: 5px;
+
+  background: ${({ active }) => {
+    switch (active) {
+      case 'active':
+        return '#fff;';
+      case 'none':
+        return '#ececec';
       default:
-        return '#e6e6e6';
+        return '#ececec';
+    }
+  }};
+
+  opacity: ${({ active }) => {
+    switch (active) {
+      case 'active':
+        return '1';
+      case 'none':
+        return '0.18';
+      default:
+        return '0.18';
     }
   }};
 
   &::placeholder {
-    color: #8f8f8f;
+    color: #3d3d3d;
   }
 
   &:-webkit-input-placeholder {
-    color: #8f8f8f;
+    color: #3d3d3d;
   }
 
   &:-ms-input-placeholder {
-    color: #8f8f8f;
+    color: #3d3d3d;
   }
 
   &:focus {
-    border-width: 0 0 1px;
-    border-color: #1d232e;
-    color: #1d232e;
+    color: #1c1c1c;
+    opacity: 1;
+    background: #fff;
   }
 
   &:focus::placeholder {
@@ -85,6 +107,17 @@ const StyledInput = styled.input<InputProps>`
 
   &:focus:-ms-input-placeholder {
     color: transparent;
+  }
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: url(https://img.icons8.com/fluency-systems-regular/20/x.png)
+      center center no-repeat;
   }
 `;
 
