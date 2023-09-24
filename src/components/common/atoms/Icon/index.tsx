@@ -4,17 +4,19 @@ import SVGComponents, {
   SVGIconKeys,
 } from '@/utils/iconMap';
 
+type IconSize = 'small' | 'medium' | 'large';
+
 interface IconProps {
   iconName: SVGIconKeys;
   color: string;
-  size: number;
+  iconSize: IconSize;
   className?: string;
 }
 
 const Icon = ({
   iconName,
   color,
-  size,
+  iconSize,
   className,
 }: IconProps) => {
   const IconComponent = useMemo(
@@ -26,8 +28,8 @@ const Icon = ({
     <Suspense fallback={<div>LoadingSpinner....</div>}>
       <IconComponent
         color={color}
-        width={size}
-        height={size}
+        width={iconSize}
+        height={iconSize}
         className={className}
       />
     </Suspense>
