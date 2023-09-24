@@ -1,0 +1,21 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+import BackButton from '.';
+
+<Meta title="atoms/BackButton" component={BackButton} />
+
+# BackButton
+
+모든 페이지에서 사용되어지는 뒤로가기 버튼 컴포넌트 입니다.
+
+# Props
+
+```ts
+
+type ButtonSize = 'small' | 'medium' | 'large';
+
+interface BackButtonProps {
+  // BackButton의 사이즈 단위! 'small', 'medium','large'가 있다.
+  buttonSize: ButtonSize;
+}
+```
