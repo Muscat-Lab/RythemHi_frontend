@@ -20,7 +20,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  staticDirs: ['../public'],
 
   webpackFinal: async (config) => {
     config.resolve = config.resolve || {};
@@ -37,10 +36,25 @@ const config: StorybookConfig = {
       '@/utils': path.resolve(__dirname, '../src/utils/'),
     };
 
-    config?.module?.rules?.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
+    config.module = config.module || { rules: [] };
+    config.module.rules = config.module.rules || [];
+
+    config.module.rules = [
+      ...config.module.rules.map((rule) => {
+        if (!rule || rule === '...') {
+          return rule;
+        }
+
+        if (rule.test && /svg/.test(String(rule.test))) {
+          return { ...rule, exclude: /\.svg$/i };
+        }
+        return rule;
+      }),
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+    ];
 
 
     return config;
