@@ -1,0 +1,53 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+import Input from '.';
+
+<Meta title="atoms/Input" component={Input} />
+
+# Input
+
+회원가입과 로그인에서 사용되는 인풋 컴포넌트 입니다.
+
+# Props
+
+```ts
+interface InputProps {
+  // input의 사이즈 단위! 'small', 'medium','large'가 있다.
+  inputSize: SizeType;
+  // 입력 성공 or 실패에 따라 border-color를 다르게 주기! 'success', 'error'가 있다.
+  variant?: VariantType;
+  // Custom class
+  className?: string;
+}
+```
+
+### Input
+
+<h4>* 로그인 예시 *</h4>
+<div>
+
+  <Input
+        type="email"
+        name="email"
+        inputSize="small"
+        placeholder="email 입력"
+        value={'rhythmhi@rhythm.hi'}
+      />
+</div>
+<div>
+  <Input
+    type="password"
+    inputSize="small"
+    variant="error"
+    placeholder="영문, 숫자, 특수문자 조합 6자 이상"
+    value={'rhy'}
+  />
+  <br />
+  <Input
+    type="password"
+    inputSize="small"
+    variant="success"
+    placeholder="영문, 숫자, 특수문자 조합 6자 이상"
+    value={'rhy123123'}
+  />
+</div>

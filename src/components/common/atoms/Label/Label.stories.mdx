@@ -1,0 +1,47 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+import Label from '.';
+
+<Meta title="atoms/Label" component={Label} />
+
+# Label
+
+서비스에서 공통으로 사용되는 라벨 컴포넌트 입니다.
+
+# Props
+
+```ts
+interface LabelProps {
+  // 라벨의 내용
+  children: React.ReactChild;
+
+  //라벨 크기!
+  //'extraSmall', 'small', 'medium', 'large', 'extraLarge' 5가지 사이즈가 있다
+  labelSize: SizeType;
+
+  // 라벨의 굵기! 'light', 'normal', 'bold'의 3가지 사이즈가 있다.
+  labelType?: BoldType;
+
+  // 라벨의 색상 타입! 'success', 'error' 2가지가 있다.
+  variant?: VariantType;
+
+  // 추가 스타일 클래스가 있을때 사용!
+  className?: string;
+}
+```
+
+### Label
+
+<h4>* 라벨 예시 *</h4>
+<Canvas>
+  <Label labelSize="medium" labelType="bold">
+    아이디
+  </Label>
+  <Label
+    labelSize="small"
+    labelType="normal"
+    variant="error"
+  >
+    이메일 형식으로 입력해주세요.
+  </Label>
+</Canvas>
