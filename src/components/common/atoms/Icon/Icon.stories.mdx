@@ -1,6 +1,11 @@
-import { Meta, Canvas, ArgsTable, Story } from "@storybook/blocks";
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
 
-import Icon from '.'
+import Icon from '.';
 
 <Meta title="atoms/Icon" component={Icon} />
 
@@ -36,6 +41,11 @@ interface IconProps {
    * custom class 하고 싶은 경우 props로 받아 적용.
    */
   className?: string;
+
+  /**
+   * Icon을 클릭했을때 동작하는 onclick 함수.
+   */
+  onClick?: () => void;
 }
 ```
 
@@ -44,5 +54,9 @@ interface IconProps {
 - 아이콘 예제입니다.
 
 <Canvas>
-  <Icon iconName="homeIcon" iconSize="small" color="grey040" />
+  <Icon
+    iconName="homeIcon"
+    iconSize="small"
+    color="grey040"
+  />
 </Canvas>
