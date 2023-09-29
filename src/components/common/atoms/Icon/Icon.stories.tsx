@@ -9,20 +9,25 @@ const meta: Meta<typeof Icon> = {
 
 export default meta;
 
-const PrimitiveSVGIcons = () => (
-  <>
-    <Icon
-      iconName="homeIcon"
-      iconSize="small"
-      color="grey040"
-    />
-    <Icon
-      iconName="searchIcon"
-      iconSize="small"
-      color="grey040"
-    />
-  </>
-);
+const PrimitiveSVGIcons = () => {
+  // eslint-disable-next-line no-console
+  const handleIconClick = () => console.log('clicked Icon');
+  return (
+    <>
+      <Icon
+        iconName="homeIcon"
+        iconSize="small"
+        color="grey040"
+        onClick={handleIconClick}
+      />
+      <Icon
+        iconName="searchIcon"
+        iconSize="small"
+        color="grey040"
+      />
+    </>
+  );
+};
 
 export const PrimarySVG = {
   render: () => <PrimitiveSVGIcons />,

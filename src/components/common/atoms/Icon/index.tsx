@@ -1,4 +1,5 @@
 import React, { Suspense, useMemo } from 'react';
+import styled from 'styled-components';
 
 import SVGComponents, {
   SVGIconKeys,
@@ -11,13 +12,48 @@ interface IconProps {
   color: string;
   iconSize: IconSize;
   className?: string;
+  onClick?: () => void;
 }
+
+type StyledIconProps = {
+  iconSize: IconSize;
+} & React.HTMLProps<HTMLDivElement>;
+
+const StyledIcon = styled.div<StyledIconProps>`
+  cursor: pointer;
+
+  width: ${({ iconSize }) => {
+    switch (iconSize) {
+      case 'small':
+        return '24px';
+      case 'medium':
+        return '32px';
+      case 'large':
+        return '64px';
+      default:
+        return '32px'; // 기본값
+    }
+  }};
+  height: ${({ iconSize }) => {
+    switch (iconSize) {
+      case 'small':
+        return '24px';
+      case 'medium':
+        return '32px';
+      case 'large':
+        return '64px';
+      default:
+        return '32px'; // 기본값
+    }
+  }};
+`;
 
 const Icon = ({
   iconName,
   color,
   iconSize,
   className,
+  onClick,
 }: IconProps) => {
   const IconComponent = useMemo(
     () => SVGComponents[iconName],
@@ -26,12 +62,13 @@ const Icon = ({
 
   return (
     <Suspense fallback={<div>LoadingSpinner....</div>}>
-      <IconComponent
-        color={color}
-        width={iconSize}
-        height={iconSize}
+      <StyledIcon
+        iconSize={iconSize}
         className={className}
-      />
+        onClick={onClick}
+      >
+        <IconComponent color={color} />
+      </StyledIcon>
     </Suspense>
   );
 };
