@@ -11,7 +11,9 @@ export const lazy = (componentImportFn: Function) =>
 export type SVGIconKeys =
   | 'homeIcon'
   | 'searchIcon'
-  | 'backButtonIcon'; // 필요한 키들을 추가
+  | 'backButtonIcon'
+  | 'notificationIcon'
+  | 'settingsIcon'; // 필요한 키들을 추가
 
 const SVG_ICON_MAP = {
   homeIcon: lazy(() => import('@/assets/icon/home.svg')),
@@ -20,6 +22,12 @@ const SVG_ICON_MAP = {
   ),
   backButtonIcon: lazy(
     () => import('@/assets/icon/back-button.svg'),
+  ),
+  notificationIcon: lazy(
+    () => import('@/assets/icon/notification.svg'),
+  ),
+  settingsIcon: lazy(
+    () => import('@/assets/icon/settings.svg'),
   ),
 };
 
