@@ -17,9 +17,9 @@ interface IconProps {
 
 type StyledIconProps = {
   iconSize: IconSize;
-} & React.HTMLProps<HTMLDivElement>;
+} & React.HTMLProps<HTMLButtonElement>;
 
-const StyledIcon = styled.div<StyledIconProps>`
+const StyledIcon = styled.button<StyledIconProps>`
   cursor: pointer;
 
   width: ${({ iconSize }) => {
