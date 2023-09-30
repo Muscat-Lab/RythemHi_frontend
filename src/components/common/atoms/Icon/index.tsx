@@ -21,6 +21,11 @@ type StyledIconProps = {
 
 const StyledIcon = styled.button<StyledIconProps>`
   cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
 
   width: ${({ iconSize }) => {
     switch (iconSize) {
@@ -67,7 +72,7 @@ const Icon = ({
         className={className}
         onClick={onClick}
       >
-        <IconComponent color={color} />
+        <IconComponent stroke={color} />
       </StyledIcon>
     </Suspense>
   );
