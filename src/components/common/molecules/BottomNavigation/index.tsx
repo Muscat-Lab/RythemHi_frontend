@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 import styled from 'styled-components';
 
 import Icon from '@/components/common/atoms/Icon';
@@ -22,16 +23,28 @@ const IconWrapper = styled.div`
 const BottomNavigation = () => {
   const router = useRouter();
 
+  const currentPath = useMemo(
+    () => router.pathname,
+    [router],
+  );
+
+  const calculatedColor = (path: string) =>
+    currentPath === path ? '#fff' : '#AEAEAE';
+
   return (
     <BottomNavigationWrapper>
       <IconWrapper>
         <Icon
           iconName="homeIcon"
           iconSize="small"
-          color="#AEAEAE"
+          color={calculatedColor('/')}
           onClick={() => router.push('/')}
         />
-        <Text variant="subTitle" textSize="extraSmall">
+        <Text
+          variant="subTitle"
+          textSize="extraSmall"
+          textColor={calculatedColor('/')}
+        >
           홈
         </Text>
       </IconWrapper>
@@ -39,10 +52,14 @@ const BottomNavigation = () => {
         <Icon
           iconName="searchIcon"
           iconSize="small"
-          color="#AEAEAE"
+          color={calculatedColor('/search')}
           onClick={() => router.push('/search')}
         />
-        <Text variant="subTitle" textSize="extraSmall">
+        <Text
+          variant="subTitle"
+          textSize="extraSmall"
+          textColor={calculatedColor('/search')}
+        >
           검색
         </Text>
       </IconWrapper>
@@ -50,10 +67,14 @@ const BottomNavigation = () => {
         <Icon
           iconName="openExpectedIcon"
           iconSize="small"
-          color="#AEAEAE"
+          color={calculatedColor('/schedule')}
           onClick={() => router.push('/schedule')}
         />
-        <Text variant="subTitle" textSize="extraSmall">
+        <Text
+          variant="subTitle"
+          textSize="extraSmall"
+          textColor={calculatedColor('/schedule')}
+        >
           오픈예정
         </Text>
       </IconWrapper>
@@ -61,10 +82,14 @@ const BottomNavigation = () => {
         <Icon
           iconName="mypageIcon"
           iconSize="small"
-          color="#AEAEAE"
+          color={calculatedColor('/mypage')}
           onClick={() => router.push('/mypage')}
         />
-        <Text variant="subTitle" textSize="extraSmall">
+        <Text
+          variant="subTitle"
+          textSize="extraSmall"
+          textColor={calculatedColor('/mypage')}
+        >
           마이페이지
         </Text>
       </IconWrapper>
