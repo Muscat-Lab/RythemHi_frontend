@@ -46,11 +46,10 @@ const dummyData = [
 const BarcodeCard = () => {
   // get cardData query
 
-  // const [currentCount, setCurrentCount] = useState(0);
   const [cardData, setCardData] = useState(dummyData[0]);
 
-  // const handleClickIndicator = (clickedIdx: number) => {
-  //   setCurrentCount(clickedIdx);
+  // Indicator에 props로 넘길 콜백함수 handleChangeCard
+  // const handleChangeCard = (clickedIdx: number) => {
   //   setCardData(dummyData[clickedIdx]);
   // };
 
