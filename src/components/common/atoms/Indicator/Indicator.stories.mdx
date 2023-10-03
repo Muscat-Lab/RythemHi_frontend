@@ -1,0 +1,32 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+import Indicator from '.';
+
+<Meta title="atoms/Indicator" component={Indicator} />
+
+# Indicator
+
+홈 페이지에서 사용되어지는 Indiactor 컴포넌트 입니다.
+
+# Props
+
+```ts
+interface IndicatorProps {
+  // Indicator 개수
+  nums: number;
+  // 현재 클릭된 indicator에 따라 카드 내용이 변경되도록 하는 콜백함수
+  handleChangeCard: (clickedIdx: number) => void;
+}
+```
+
+### Indicator
+
+<h4>* Indicator 예시 *</h4>
+
+<div>
+  <Indicator
+    nums={3}
+    handleChangeCard={action('change Card')}
+  />
+</div>
