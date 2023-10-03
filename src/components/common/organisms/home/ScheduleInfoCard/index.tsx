@@ -5,6 +5,7 @@ import Text from '@/components/common/atoms/Text';
 import { flexbox } from '@/styles/mixin';
 
 interface ScheduleInfoCardProps {
+  id: number;
   bgPath: string;
   ticketOpenDate: string;
   title: string;
@@ -20,6 +21,7 @@ const ScheduleInfoCardWrapper = styled.div<{
 
   background-image: url(${({ bgPath }) => bgPath});
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 const TopBox = styled.div`
@@ -48,12 +50,16 @@ const IconInner = styled.div`
 `;
 
 const ScheduleInfoCard = ({
+  id,
   bgPath,
   ticketOpenDate,
   title,
   performanceDate,
 }: ScheduleInfoCardProps) => (
-  <ScheduleInfoCardWrapper bgPath={bgPath}>
+  <ScheduleInfoCardWrapper
+    bgPath={bgPath}
+    // onClick={() => console.log(`go ${id} router`)}
+  >
     <TopBox>
       <Text textSize="extraSmall" textColor="white">
         {ticketOpenDate}

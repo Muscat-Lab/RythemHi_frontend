@@ -13,6 +13,7 @@ export default meta;
 export const CommonScheduleInfoCard = {
   render: () => (
     <ScheduleInfoCard
+      id={100}
       bgPath="https://source.unsplash.com/random/300×300"
       ticketOpenDate="티켓 오픈 2023.06.01 14:00PM"
       title="2023 sza 내한"
