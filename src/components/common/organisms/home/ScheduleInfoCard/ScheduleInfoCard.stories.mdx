@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
+
+import ScheduleInfoCard from '.';
+
+<Meta
+  title="organisms/ScheduleInfoCard"
+  component={ScheduleInfoCard}
+/>
+
+# ScheduleInfoCard
+
+홈 페이지 내에서 사용되어지는 티켓 오픈 예정 리스트 내의 카드 컴포넌트를 표현합니다.
+
+## Props
+
+```ts
+// 모두 DB에서 관리되어지는 데이터로, 서버로부터 받아온다.
+interface ScheduleInfoCardProps {
+  // 카드(공연) 내의 들어갈 이미지 경로
+  bgPath: string;
+  // 공연 오픈 예정일
+  ticketOpenDate: string;
+  // 공연 제목
+  title: string;
+  // 공연 날짜
+  performanceDate: string;
+}
+```

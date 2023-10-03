@@ -15,7 +15,10 @@ export type SVGIconKeys =
   | 'notificationIcon'
   | 'settingsIcon'
   | 'openExpectedIcon'
-  | 'mypageIcon'; // 필요한 키들을 추가
+  | 'mypageIcon'
+  | 'bellIcon'
+  | 'heartIcon';
+// 필요한 키들을 추가
 
 const SVG_ICON_MAP = {
   homeIcon: lazy(() => import('@/assets/icon/home.svg')),
@@ -37,6 +40,8 @@ const SVG_ICON_MAP = {
   mypageIcon: lazy(
     () => import('@/assets/icon/mypage.svg'),
   ),
+  bellIcon: lazy(() => import('@/assets/icon/bell.svg')),
+  heartIcon: lazy(() => import('@/assets/icon/heart.svg')),
 };
 
 export default SVG_ICON_MAP;
