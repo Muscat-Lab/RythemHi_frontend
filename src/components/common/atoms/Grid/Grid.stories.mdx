@@ -1,0 +1,55 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+import Grid from '.';
+import { StyledButton } from './Grid.stories.tsx';
+import Text from '../Text';
+
+<Meta title="atoms/Grid" component={Grid} />
+
+# Grid
+
+모든 페이지에서 사용되어지는 그리드 컴포넌트 입니다.
+
+# Props
+
+```ts
+interface GridProps {
+  // Grid 행
+  rows: number;
+  // Grid 열
+  columns: number;
+  // Grid 행 간격
+  rowGap?: number;
+  // Grid 열 간격
+  columnGap?: number;
+  // Grid 안에 들어갈 컴포넌트
+  children: React.ReactNode;
+}
+```
+
+### Grid
+
+<h4>* 그리드 컴포넌트 예시 *</h4>
+
+<div>
+  <Grid rows={2} columns={3}>
+    <StyledButton buttonSize="small">
+      <Text textSize="extraSmall">힙합/랩</Text>
+    </StyledButton>
+    <StyledButton buttonSize="small">
+      <Text textSize="extraSmall">R&B</Text>
+    </StyledButton>
+    <StyledButton buttonSize="small">
+      <Text textSize="extraSmall">내한공연</Text>
+    </StyledButton>
+    <StyledButton buttonSize="small">
+      <Text textSize="extraSmall">발라드</Text>
+    </StyledButton>
+    <StyledButton buttonSize="small">
+      <Text textSize="extraSmall">인디밴드</Text>
+    </StyledButton>
+    <StyledButton buttonSize="small">
+      <Text textSize="extraSmall">재즈&소울</Text>
+    </StyledButton>
+  </Grid>
+</div>
