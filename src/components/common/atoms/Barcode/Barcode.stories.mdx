@@ -1,0 +1,20 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+
+import Barcode from '.';
+
+<Meta title="atoms/Barcode" component={Barcode} />
+
+# Barcode
+
+홈 페이지에서 바코드 컴포넌트 입니다.
+
+# Props
+
+```ts
+// bwipjs 라이브러리로 만들어낸 바코드 스트링타입.
+barcodeDataURL: string;
+// 바코드 만료기간
+expiryDate: string;
+// 바코드 재생성 함수
+regenerateBarcode: () => void;
+```
