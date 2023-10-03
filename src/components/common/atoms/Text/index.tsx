@@ -14,6 +14,7 @@ type VariantType = 'title' | 'subTitle';
 interface TextProps {
   children: React.ReactNode;
   textSize: SizeType;
+  textColor?: string;
   textType?: BoldType;
   variant?: VariantType;
   className?: string;
@@ -25,7 +26,7 @@ const StyledText = styled.span<TextProps>`
   font-size: ${({ textSize }) => {
     switch (textSize) {
       case 'extraSmall':
-        return '10px';
+        return '11px';
       case 'small':
         return '15px';
       case 'medium':
@@ -52,22 +53,14 @@ const StyledText = styled.span<TextProps>`
     }
   }};
 
-  color: ${({ variant }) => {
-    switch (variant) {
-      case 'title':
-        return '#1D232E';
-      case 'subTitle':
-        return '#8F8F8F';
-      default:
-        return '#1D232E';
-    }
-  }};
+  color: ${({ textColor }) => textColor || '#1D232E'};
 `;
 
 const Text = ({
   children,
   textSize,
   textType,
+  textColor,
   variant,
   className,
   ...textAttr
@@ -75,6 +68,7 @@ const Text = ({
   <StyledText
     textSize={textSize}
     textType={textType}
+    textColor={textColor}
     variant={variant}
     className={className}
     {...textAttr}
