@@ -4,6 +4,8 @@ import {
   QueryClientProvider,
 } from 'react-query';
 
+import Layout from '@/components/common/templates/Layout';
+
 import GlobalStyles from '../styles/GlobalStyles';
 
 const queryClient = new QueryClient();
@@ -15,7 +17,9 @@ export default function Home({
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyles />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </QueryClientProvider>
   );
 }
