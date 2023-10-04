@@ -15,9 +15,13 @@ const meta: Meta<typeof Button> = {
 export default meta;
 
 const SignInButton = () => (
-  <Button buttonSize="medium" variant="success">
-    로그인
-  </Button>
+  <Button
+    buttonSize="medium"
+    variant="naver"
+    text="네이버로 계속하기"
+    textSize="small"
+    iconKey="settingsIcon"
+  />
 );
 
 export const SignIn = {

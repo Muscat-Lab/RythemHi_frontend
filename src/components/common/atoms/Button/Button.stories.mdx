@@ -23,17 +23,39 @@ interface ButtonProps {
 }
 ```
 
-### Button  
+### Button
 
-<h4>* 로그인 예시 *</h4>
+<h4>* 버튼 예시 *</h4>
 
 <div>
   <Button
-    type="button"
-    butotnSize="medium"
-    variantType="default"
-    onClick={() => console.log("validation after to login api call")}
-  >
-    로그인
-  </Button>
+    buttonSize="medium"
+    variant="kakao"
+    text="카카오로 계속하기"
+    textSize="small"
+    iconKey="settingsIcon"
+  />
+  <div style={{ marginTop: '10px' }}></div>
+  <Button
+    buttonSize="medium"
+    variant="apple"
+    text="애플로 계속하기"
+    textSize="small"
+    iconKey="settingsIcon"
+  />
+  <div style={{ marginTop: '10px' }}></div>
+  <Button
+    buttonSize="large"
+    textSize="medium"
+    text="동의하고 알림받기"
+    textType="bold"
+  />
+  <div style={{ marginTop: '10px' }}></div>
+  <Button
+    buttonSize="large"
+    variant="close"
+    text="닫기"
+    textSize="medium"
+    textType="bold"
+  />
 </div>
