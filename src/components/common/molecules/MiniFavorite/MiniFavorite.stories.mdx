@@ -14,7 +14,7 @@ import MiniFavorite from '.';
 
 # Label
 
-선호하는 아티스트, 장르를 선택한 경우 하단에 보이는 MiniFavorite 컴포넌트 입니다.
+선호하는 아티스트, 장르를 선택한 경우 하단에 보이는 Favorite 컴포넌트 입니다.
 
 ( 테두리가 하얀 색이라 흰 배경에서 테두리는 보이지 않습니다! )
 
@@ -24,18 +24,32 @@ import MiniFavorite from '.';
   text?: string;  // 들어갈 내용
 background?: string;  // 선택한 아티스트의 사진이 있을 경우 해당 url주소
 favType?: FavType;  // 선택했는지 아닌지 'active' , 'none'이 있다!
+sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
 ```
 
-### MiniFavorite
+### Favorite
 
-- 하단 MiniFavorite 예제입니다.
+- Favorite 예제입니다.
 
 <Canvas>
-  <MiniFavorite />
-  <MiniFavorite text="R&B" />
+  <MiniFavorite sizeType="small" />
   <MiniFavorite
     text="Aminé"
     favType="active"
+    sizeType="small"
+    background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
+  />
+  <MiniFavorite text="R&B" sizeType="medium" />
+  <MiniFavorite
+    text="Aminé"
+    favType="active"
+    sizeType="large"
+    background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
+  />
+  <MiniFavorite
+    text="Aminé"
+    favType="active"
+    sizeType="large"
     background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
   />
 </Canvas>

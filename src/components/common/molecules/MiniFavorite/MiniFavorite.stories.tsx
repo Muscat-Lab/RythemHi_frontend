@@ -11,5 +11,5 @@ const meta: Meta<typeof MiniFavorite> = {
 export default meta;
 
 export const MiniFav = {
-  render: () => <MiniFavorite />,
+  render: () => <MiniFavorite sizeType="small" />,
 };
