@@ -6,16 +6,40 @@ import Icon from '../../atoms/Icon';
 import Text from '../../atoms/Text';
 
 type FavType = 'active' | 'none';
+type SizeType = 'small' | 'medium' | 'large';
 
 interface FavoriteProps {
   text?: string;
   background?: string;
   favType?: FavType;
+  sizeType: SizeType;
 }
 
 const FavoriteWrapper = styled.div<FavoriteProps>`
-  width: 94px;
-  height: 70px;
+  width: ${({ sizeType }) => {
+    switch (sizeType) {
+      case 'small':
+        return '94px';
+      case 'large':
+        return '166px';
+      default:
+        return '166px';
+    }
+  }};
+
+  height: ${({ sizeType }) => {
+    switch (sizeType) {
+      case 'small':
+        return '70px';
+      case 'medium':
+        return '134px';
+      case 'large':
+        return `${Math.random() * 100 + 200}px`;
+      default:
+        return '166px';
+    }
+  }};
+
   border-radius: 5.5px;
 
   border: ${({ favType }) => {
@@ -29,11 +53,23 @@ const FavoriteWrapper = styled.div<FavoriteProps>`
     }
   }};
   background-image: url(${({ background }) => background});
+
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+
+  background-position: ${({ sizeType }) => {
+    switch (sizeType) {
+      case 'small':
+        return 'center center';
+      case 'large':
+        return 'top';
+      default:
+        return 'center top';
+    }
+  }};
 `;
 
-const Favorite = styled.div<FavoriteProps>`
+const FavoriteContent = styled.div<FavoriteProps>`
   ${flexbox({ jc: 'center', ai: 'center' })}
   position: relative;
   width: 100%;
@@ -57,10 +93,11 @@ const IconWrapper = styled.div`
   right: 4px;
 `;
 
-const MiniFavorite = ({
+const Favorite = ({
   text,
   background,
   favType,
+  sizeType,
 }: FavoriteProps) => {
   const handleMiniFavorite = () => {
     // TODO (fav 삭제)
@@ -68,31 +105,37 @@ const MiniFavorite = ({
   return (
     <FavoriteWrapper
       favType={favType}
+      sizeType={sizeType}
       background={background}
     >
       {text ? (
-        <Favorite favType={favType}>
-          <IconWrapper>
-            <Icon
-              iconName="close"
-              iconSize="small"
-              color="#fff"
-              onClick={() => handleMiniFavorite()}
-            />
-          </IconWrapper>
+        <FavoriteContent
+          favType={favType}
+          sizeType={sizeType}
+        >
+          {sizeType === 'small' ? (
+            <IconWrapper>
+              <Icon
+                iconName="close"
+                iconSize="small"
+                color="#fff"
+                onClick={() => handleMiniFavorite()}
+              />
+            </IconWrapper>
+          ) : undefined}
           <TextWrapper>
             <Text
               variant="title"
-              textSize="small"
+              textSize={sizeType}
               textColor="#fff"
               textType="bold"
             >
               {text}
             </Text>
           </TextWrapper>
-        </Favorite>
+        </FavoriteContent>
       ) : (
-        <Favorite>
+        <FavoriteContent sizeType={sizeType}>
           <TextWrapper>
             <Icon
               iconName="plus"
@@ -100,9 +143,9 @@ const MiniFavorite = ({
               color="#fff"
             />
           </TextWrapper>
-        </Favorite>
+        </FavoriteContent>
       )}
     </FavoriteWrapper>
   );
 };
-export default MiniFavorite;
+export default Favorite;
