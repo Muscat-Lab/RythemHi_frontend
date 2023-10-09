@@ -1,0 +1,40 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
+import { action } from '@storybook/addon-actions';
+
+import TitleHeader from '.';
+
+<Meta
+  title="molecules/TitleHeader"
+  component={TitleHeader}
+/>
+
+# TitleHeader
+
+프로젝트 내에서 홈, 마이페이지에서 사용되어지는 Title + 특정 페이지로 이동되도록 하는 기능을 포함한 컴포넌트입니다.
+
+## Props
+
+```ts
+interface TitleHeaderProps {
+  // Title 제목
+  title: string;
+  // 특정 페이지로 이동하는 콜백함수
+  handleGotoRouter: () => void;
+}
+```
+
+### TitleHeader
+
+- TitleHeader 예제입니다.
+
+<Canvas>
+  <TitleHeader
+    title="티켓 오픈예정 리스트"
+    handleGoToRouter={action('go router')}
+  />
+</Canvas>
