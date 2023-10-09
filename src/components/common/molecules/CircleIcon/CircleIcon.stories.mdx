@@ -1,0 +1,35 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
+
+import CircleIcon from '.';
+import Icon from '@/components/common/atoms/Icon';
+
+<Meta title="molecules/CircleIcon" component={CircleIcon} />
+
+# Label
+
+프로젝트 내에서 Icon을 감싸며 circle 형태의 컴포넌트를 표현합니다.
+
+## Props
+
+```ts
+
+```
+
+### CircleIcon
+
+- CircleIcon 컴포넌트 예제입니다.
+
+<Canvas>
+  <CircleIcon>
+    <Icon
+      iconName="bellIcon"
+      iconSize="small"
+      color="white"
+    />
+  </CircleIcon>
+</Canvas>
