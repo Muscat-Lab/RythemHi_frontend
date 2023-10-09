@@ -19,6 +19,7 @@ const BarcodeWrapper = styled.div`
 
   border-radius: 0 0 10px 10px;
   padding: 9px 0;
+  background-color: #fff;
 `;
 
 const BarcodeInfo = styled.div`

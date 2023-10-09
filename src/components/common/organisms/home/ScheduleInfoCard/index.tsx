@@ -20,6 +20,7 @@ const ScheduleInfoCardWrapper = styled.div<{
   padding: 12px;
 
   background-image: url(${({ bgPath }) => bgPath});
+  background-size: cover;
   border-radius: 10px;
   cursor: pointer;
 `;
@@ -57,6 +58,7 @@ const ScheduleInfoCard = ({
   performanceDate,
 }: ScheduleInfoCardProps) => (
   <ScheduleInfoCardWrapper
+    data-id={id}
     bgPath={bgPath}
     // onClick={() => console.log(`go ${id} router`)}
   >

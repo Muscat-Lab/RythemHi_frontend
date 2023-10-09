@@ -19,7 +19,9 @@ const TitleHeader = ({
   handleGoToRouter,
 }: TitleHeaderProps) => (
   <TitleHeaderWrapper>
-    <Text textSize="medium">{title}</Text>
+    <Text textSize="medium" textColor="#fff">
+      {title}
+    </Text>
     <Icon
       // TODO: Icon 변경 예정
       iconName="searchIcon"

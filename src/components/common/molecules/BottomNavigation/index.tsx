@@ -9,6 +9,7 @@ import { flexbox } from '@/styles/mixin';
 const BottomNavigationWrapper = styled.div`
   ${flexbox({ jc: 'space-between' })}
   gap: 44px;
+  width: 390px;
   position: fixed;
   bottom: 0;
   background: #181818;

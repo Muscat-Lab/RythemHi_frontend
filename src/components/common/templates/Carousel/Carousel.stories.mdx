@@ -1,0 +1,24 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
+
+import Carousel from '.';
+
+<Meta title="templates/Carousel" component={Carousel} />
+
+# Carousel
+
+여러 카드가 Carousel형태로 나타내기 위한 컴포넌트입니다.
+
+## Props
+
+```ts
+// 모두 DB에서 관리되어지는 데이터로, 서버로부터 받아온다.
+interface CarouselProps {
+  // Carousel를 이루는 컴포넌트 노드들
+  items: React.ReactNode[];
+}
+```
