@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { flexbox } from '@/styles/mixin';
+
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const LayoutWrapper = styled.section`
-  min-width: 390px;
+  ${flexbox({ jc: 'center', ai: 'center' })}
+  width: 390px;
   padding: 0 20px;
   margin: 0 auto;
 `;

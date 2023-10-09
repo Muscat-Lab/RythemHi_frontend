@@ -11,6 +11,8 @@ type GridProps = {
 
 const StyledGrid = styled.div<GridProps>`
   display: grid;
+  place-items: center;
+
   grid-template-rows: repeat(${({ rows }) => rows}, 1fr);
   grid-template-columns: repeat(
     ${({ columns }) => columns},

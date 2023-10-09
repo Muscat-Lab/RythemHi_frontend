@@ -18,8 +18,7 @@ const BarcodeCardWrapper = styled.div`
 
 const BarcodeCardInner = styled.div`
   ${flexbox({ ai: 'flex-end' })}
-  width: 364px;
-  height: 160px;
+  height: 100%;
 `;
 
 const CardBox = styled.div``;
@@ -58,12 +57,14 @@ const BarcodeCard = () => {
       {/* TODO: InfoTag 들어갈예정 */}
       <BarcodeCardInner>
         <CardBox>
-          <Text textSize="small">{cardData.title}</Text>
+          <Text textSize="small" textColor="white">
+            {cardData.title}
+          </Text>
           <SubTitleBox>
-            <Text textSize="extraSmall">
+            <Text textSize="extraSmall" textColor="white">
               {cardData.subTitle1}
             </Text>
-            <Text textSize="extraSmall">
+            <Text textSize="extraSmall" textColor="white">
               {cardData.subTitle2}
             </Text>
           </SubTitleBox>
