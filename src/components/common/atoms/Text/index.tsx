@@ -34,7 +34,7 @@ const StyledText = styled.span<TextProps>`
       case 'large':
         return '25px';
       case 'extraLarge':
-        return '30px';
+        return '75px';
       default:
         return '20px';
     }

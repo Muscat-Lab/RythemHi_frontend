@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { flexbox } from '@/styles/mixin';
 import { SVGIconKeys } from '@/utils/iconMap';
 
-import Icon from '../Icon';
 import Text from '../Text';
 
 type SizeType = 'small' | 'medium' | 'large';
@@ -13,9 +12,6 @@ type BoldType = 'light' | 'normal' | 'bold';
 type VariantType =
   | 'success'
   | 'error'
-  | 'kakao'
-  | 'naver'
-  | 'apple'
   | 'close'
   | 'default';
 
@@ -70,12 +66,6 @@ const StyledButton = styled.button<ButtonProps>`
         return 'blue';
       case 'error':
         return '#F00';
-      case 'kakao':
-        return '#FEE500';
-      case 'naver':
-        return '#03C75A';
-      case 'apple':
-        return '#FFF';
       case 'close':
         return '#000';
       default:
@@ -85,12 +75,6 @@ const StyledButton = styled.button<ButtonProps>`
 
   font-size: ${({ variant }) => {
     switch (variant) {
-      case 'kakao':
-        return '16px';
-      case 'naver':
-        return '16px';
-      case 'apple':
-        return '16px';
       default:
         return '18px';
     }
@@ -98,12 +82,6 @@ const StyledButton = styled.button<ButtonProps>`
 
   font-weight: ${({ variant }) => {
     switch (variant) {
-      case 'kakao':
-        return '500';
-      case 'naver':
-        return '500';
-      case 'apple':
-        return '500';
       default:
         return '700';
     }
@@ -118,10 +96,6 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const IconWrapper = styled.div`
-  ${flexbox({ dir: 'column', jc: 'center', ai: 'center' })}
-  margin-right: 10px;
-`;
 const TextWrapper = styled.div`
   ${flexbox({ dir: 'column', jc: 'center', ai: 'center' })}
 `;
@@ -135,40 +109,24 @@ const Button = ({
   iconKey,
   ...buttonAttr
 }: ButtonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement>) => {
-  let iconColor = '#fff';
-
-  if (variant === 'naver' || variant === 'apple') {
-    iconColor = '#000';
-  }
-  return (
-    <StyledButton
-      buttonSize={buttonSize}
-      variant={variant}
-      className={className}
-      text={text}
-      {...buttonAttr}
-    >
-      {iconKey && (
-        <IconWrapper>
-          <Icon
-            iconName={iconKey}
-            iconSize="small"
-            color={iconColor}
-          />
-        </IconWrapper>
-      )}
-      <TextWrapper>
-        <Text
-          textSize="small"
-          textType={textType}
-          textColor={iconColor}
-        >
-          {text}
-        </Text>
-      </TextWrapper>
-    </StyledButton>
-  );
-};
+  React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+  <StyledButton
+    buttonSize={buttonSize}
+    variant={variant}
+    className={className}
+    text={text}
+    {...buttonAttr}
+  >
+    <TextWrapper>
+      <Text
+        textSize="small"
+        textType={textType}
+        textColor="#fff"
+      >
+        {text}
+      </Text>
+    </TextWrapper>
+  </StyledButton>
+);
 
 export default Button;
