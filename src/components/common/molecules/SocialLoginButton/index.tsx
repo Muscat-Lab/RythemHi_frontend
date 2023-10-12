@@ -74,11 +74,15 @@ const SocialLoginButton = ({
   if (variant === 'naver') {
     textColor = '#fff';
   }
+  const handleSocialLogin = () => {
+    // TODO: 소셜 로그인 이동
+  };
   return (
     <StyledButton
       variant={variant}
       className={className}
       text={text}
+      onClick={() => handleSocialLogin()}
       {...buttonAttr}
     >
       {iconKey && (
