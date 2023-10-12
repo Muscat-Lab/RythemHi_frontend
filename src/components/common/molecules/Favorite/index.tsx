@@ -189,4 +189,5 @@ const Favorite = ({
     </FavoriteWrapper>
   );
 };
+
 export default Favorite;
