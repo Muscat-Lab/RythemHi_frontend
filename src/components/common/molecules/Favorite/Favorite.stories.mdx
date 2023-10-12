@@ -9,7 +9,7 @@ import Favorite from '.';
 
 <Meta title="molecules/Favorite" component={Favorite} />
 
-# Label
+# Favorite
 
 선호하는 아티스트, 장르를 선택한 경우 하단에 보이는 Favorite 컴포넌트 입니다.
 
@@ -18,9 +18,16 @@ import Favorite from '.';
 ## Props
 
 ```ts
+- FavoriteProps
   text?: string;  // 들어갈 내용
 background?: string;  // 선택한 아티스트의 사진이 있을 경우 해당 url주소
-favType?: FavType;  // 선택했는지 아닌지 'active' , 'none'이 있다!
+favType?: FavType;  // small에서 선택여부 'active' , 'ready'으로, large 에선 'selected', 'none'으로!
+sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
+```
+
+```ts
+- BackgroundProps // background를 구분지었습니다!
+background?: string;  // 선택한 아티스트의 사진이 있을 경우 해당 url주소
 sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
 ```
 
@@ -29,7 +36,7 @@ sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
 - Favorite 예제입니다.
 
 <Canvas>
-  <Favorite sizeType="small" />
+  <Favorite sizeType="small" favType="ready" />
   <Favorite
     text="Aminé"
     favType="active"
@@ -39,13 +46,12 @@ sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
   <Favorite text="R&B" sizeType="medium" />
   <Favorite
     text="Aminé"
-    favType="active"
     sizeType="large"
     background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
   />
   <Favorite
     text="Aminé"
-    favType="active"
+    favType="selected"
     sizeType="large"
     background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
   />

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { flexbox } from '@/styles/mixin';
@@ -5,15 +6,24 @@ import { flexbox } from '@/styles/mixin';
 import Icon from '../../atoms/Icon';
 import Text from '../../atoms/Text';
 
-type FavType = 'active' | 'none';
+type FavType = 'active' | 'ready' | 'none' | 'selected';
 type SizeType = 'small' | 'medium' | 'large';
 
 interface FavoriteProps {
   text?: string;
-  background?: string;
   favType?: FavType;
   sizeType: SizeType;
 }
+
+interface BackgroundProps {
+  background?: string;
+  sizeType: SizeType;
+}
+
+// const heights = ['200px', '300px', '400px'];
+
+// const randomHeight = () =>
+//   heights[Math.floor(Math.random() * heights.length)];
 
 const FavoriteWrapper = styled.div<FavoriteProps>`
   width: ${({ sizeType }) => {
@@ -34,26 +44,36 @@ const FavoriteWrapper = styled.div<FavoriteProps>`
       case 'medium':
         return '134px';
       case 'large':
-        return `${Math.random() * 100 + 200}px`;
+        return '300px';
       default:
         return '166px';
     }
   }};
-
-  border-radius: 5.5px;
+  border-radius: 10px;
 
   border: ${({ favType }) => {
     switch (favType) {
       case 'active':
         return '1.5px solid #fff';
+      case 'ready':
+        return '1.5px dashed #fff';
+      case 'selected':
+        return '2.5px solid #fff';
       case 'none':
-        return '1.5px dashed #fff';
+        return '2.5px solid transparent';
       default:
-        return '1.5px dashed #fff';
+        return '2.5px solid transparent';
     }
   }};
-  background-image: url(${({ background }) => background});
+  box-sizing: border-box;
+  position: relative;
+`;
 
+const BackgroundContainer = styled.div<BackgroundProps>`
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-image: url(${({ background }) => background});
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -62,19 +82,20 @@ const FavoriteWrapper = styled.div<FavoriteProps>`
       case 'small':
         return 'center center';
       case 'large':
-        return 'top';
+        return 'center';
       default:
         return 'center top';
     }
   }};
+  box-sizing: border-box;
 `;
 
-const FavoriteContent = styled.div<FavoriteProps>`
+const FavoriteContainer = styled.div<FavoriteProps>`
   ${flexbox({ jc: 'center', ai: 'center' })}
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 5.5px;
+  border-radius: 8px;
 
   background: linear-gradient(
     0deg,
@@ -95,56 +116,76 @@ const IconWrapper = styled.div`
 
 const Favorite = ({
   text,
-  background,
   favType,
   sizeType,
-}: FavoriteProps) => {
-  const handleMiniFavorite = () => {
+  background,
+}: FavoriteProps & BackgroundProps) => {
+  const [isFavoriteActive, setIsFavoriteActive] =
+    useState(favType);
+
+  const handleCloseFavorite = () => {
     // TODO (fav 삭제)
   };
+  const handleFavorite = () => {
+    // TODO (좋아요 선택)
+    if (isFavoriteActive !== 'ready') {
+      if (isFavoriteActive === 'selected') {
+        setIsFavoriteActive('none');
+      } else {
+        setIsFavoriteActive('selected');
+      }
+    }
+  }; //
   return (
     <FavoriteWrapper
-      favType={favType}
+      favType={isFavoriteActive}
       sizeType={sizeType}
-      background={background}
+      onClick={() =>
+        sizeType !== 'small' ? handleFavorite() : undefined
+      }
     >
-      {text ? (
-        <FavoriteContent
-          favType={favType}
-          sizeType={sizeType}
-        >
-          {sizeType === 'small' ? (
-            <IconWrapper>
+      <BackgroundContainer
+        background={background}
+        sizeType={sizeType}
+      >
+        {text ? (
+          <FavoriteContainer
+            favType={isFavoriteActive}
+            sizeType={sizeType}
+          >
+            {sizeType === 'small' ? (
+              <IconWrapper>
+                <Icon
+                  iconName="close"
+                  iconSize="small"
+                  color="#fff"
+                  onClick={() => handleCloseFavorite()}
+                />
+              </IconWrapper>
+            ) : undefined}
+            <TextWrapper>
+              <Text
+                variant="title"
+                textSize={sizeType}
+                textColor="#fff"
+                textType="bold"
+              >
+                {text}
+              </Text>
+            </TextWrapper>
+          </FavoriteContainer>
+        ) : (
+          <FavoriteContainer sizeType={sizeType}>
+            <TextWrapper>
               <Icon
-                iconName="close"
+                iconName="plus"
                 iconSize="small"
                 color="#fff"
-                onClick={() => handleMiniFavorite()}
               />
-            </IconWrapper>
-          ) : undefined}
-          <TextWrapper>
-            <Text
-              variant="title"
-              textSize={sizeType}
-              textColor="#fff"
-              textType="bold"
-            >
-              {text}
-            </Text>
-          </TextWrapper>
-        </FavoriteContent>
-      ) : (
-        <FavoriteContent sizeType={sizeType}>
-          <TextWrapper>
-            <Icon
-              iconName="plus"
-              iconSize="small"
-              color="#fff"
-            />
-          </TextWrapper>
-        </FavoriteContent>
-      )}
+            </TextWrapper>
+          </FavoriteContainer>
+        )}
+      </BackgroundContainer>
     </FavoriteWrapper>
   );
 };
