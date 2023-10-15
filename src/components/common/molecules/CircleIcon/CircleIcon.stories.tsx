@@ -14,11 +14,11 @@ export default meta;
 
 export const CommonCircleIcon = {
   return: () => (
-    <CircleIcon>
+    <CircleIcon circleIconSize="medium" isActive={false}>
       <Icon
         iconName="bellIcon"
-        iconSize="small"
-        color="white"
+        iconSize="medium"
+        color="#fff"
       />
     </CircleIcon>
   ),

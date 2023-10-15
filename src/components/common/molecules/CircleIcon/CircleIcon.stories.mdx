@@ -4,6 +4,7 @@ import {
   ArgsTable,
   Story,
 } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions';
 
 import CircleIcon from '.';
 import Icon from '@/components/common/atoms/Icon';
@@ -17,7 +18,15 @@ import Icon from '@/components/common/atoms/Icon';
 ## Props
 
 ```ts
-
+type SizeType = 'small' | 'medium' | 'large';
+interface circleIconProps {
+  // circleIcon 사이즈 단위! 'small', 'medium','large'가 있다.
+  circleIconSize: SizeType;
+  // 버튼 children Element (circleIcon에 들어가는 icon component)
+  children: React.ReactNode;
+  // icon 활성화 여부
+  isActive: boolean;
+}
 ```
 
 ### CircleIcon
@@ -25,11 +34,25 @@ import Icon from '@/components/common/atoms/Icon';
 - CircleIcon 컴포넌트 예제입니다.
 
 <Canvas>
-  <CircleIcon>
+  <CircleIcon circleIconSize="small">
     <Icon
       iconName="bellIcon"
       iconSize="small"
-      color="white"
+      color="#fff"
+    />
+  </CircleIcon>
+  <CircleIcon circleIconSize="medium">
+    <Icon
+      iconName="heartIcon"
+      iconSize="medium"
+      color="red"
+    />
+  </CircleIcon>
+  <CircleIcon circleIconSize="large">
+    <Icon
+      iconName="heartIcon"
+      iconSize="large"
+      color="#fff"
     />
   </CircleIcon>
 </Canvas>
