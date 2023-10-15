@@ -12,10 +12,7 @@ const ScheduleList = () => {
     return <LoadingSpinner loadingSize="small" />;
   }
 
-  console.log(allPerformances.performances);
-
   return (
-    // Server CORS 해결 이후 allPerformances로 데이터 교체 예정.
     allPerformances.performances && (
       <Carousel
         items={allPerformances.performances.map(

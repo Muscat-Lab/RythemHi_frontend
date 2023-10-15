@@ -10,7 +10,6 @@ import TitleHeader from '@/components/common/molecules/TitleHeader';
 import BarcodeCard from '@/components/common/organisms/BarcodeCard';
 import ScheduleList from '@/components/common/templates/home/ScheduleList';
 import { categoryData } from '@/constants/data';
-import useGetAllPerformances from '@/hooks/Performances/useGetPerformances';
 import useBarcode from '@/hooks/useBarcode';
 import { flexbox } from '@/styles/mixin';
 
