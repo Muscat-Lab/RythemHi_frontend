@@ -12,6 +12,8 @@ const ScheduleList = () => {
     return <LoadingSpinner loadingSize="small" />;
   }
 
+  console.log(allPerformances.performances);
+
   return (
     allPerformances.performances && (
       <Carousel
