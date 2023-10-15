@@ -1,8 +1,8 @@
 import LoadingSpinner from '@/components/common/atoms/LoadingSpinner';
 import ScheduleInfoCard from '@/components/common/organisms/home/ScheduleInfoCard';
 import Carousel from '@/components/common/templates/Carousel';
-import { scheduleInfoListData } from '@/constants/data';
 import useGetAllPerformances from '@/hooks/Performances/useGetPerformances';
+import { PerformanceType } from '@/interface/performance';
 
 const ScheduleList = () => {
   const { allPerformances, allPerformancesLoading } =
@@ -12,25 +12,27 @@ const ScheduleList = () => {
     return <LoadingSpinner loadingSize="small" />;
   }
 
+  console.log(allPerformances.performances);
+
   return (
     // Server CORS 해결 이후 allPerformances로 데이터 교체 예정.
-    allPerformances && (
+    allPerformances.performances && (
       <Carousel
-        items={scheduleInfoListData.map(
+        items={allPerformances.performances.map(
           ({
             id,
-            bgPath,
-            ticketOpenDate,
+            posterImageUrl,
+            begin,
             title,
-            performanceDate,
-          }) => (
+            preBookingClosedAt,
+          }: PerformanceType) => (
             <ScheduleInfoCard
               key={id}
               id={id}
-              bgPath={bgPath}
-              ticketOpenDate={ticketOpenDate}
+              posterImageUrl={posterImageUrl}
+              ticketOpenDate={begin}
               title={title}
-              performanceDate={performanceDate}
+              performanceDate={preBookingClosedAt}
             />
           ),
         )}

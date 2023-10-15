@@ -4866,6 +4866,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:*":
+  version: 3.3.3
+  resolution: "@types/hoist-non-react-statics@npm:3.3.3"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 107ac20ab36acdc83fb6bfca901e6f4f11307a0a307099c31ecf2a9875f8abffd731a2e1ee793162307e8aaee48fe9fd8d4e034fce88d5da480bc4178a3fc8d7
+  languageName: node
+  linkType: hard
+
 "@types/html-minifier-terser@npm:^6.0.0":
   version: 6.1.0
   resolution: "@types/html-minifier-terser@npm:6.1.0"
@@ -5129,6 +5139,17 @@ __metadata:
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
   checksum: 205fdbe3326b7046d7eaf5e494d8084f2659086a266f3f9cf00bccc549c8e36e407f88168ad4383c8b07099957ad669f75f2532ed4bc70be2b037330f7bae019
+  languageName: node
+  linkType: hard
+
+"@types/styled-components@npm:^5.1.28":
+  version: 5.1.28
+  resolution: "@types/styled-components@npm:5.1.28"
+  dependencies:
+    "@types/hoist-non-react-statics": "*"
+    "@types/react": "*"
+    csstype: ^3.0.2
+  checksum: 2e12be4fdc2d60f63e16f8f5cac98d8305e0686b3332a160fec39df2a277f16715b878e25384ddda29e48acf101110a29ca108b716296e9a06bf2740f1257385
   languageName: node
   linkType: hard
 
@@ -9877,6 +9898,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hoist-non-react-statics@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: ^16.7.0
+  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^2.1.4":
   version: 2.8.9
   resolution: "hosted-git-info@npm:2.8.9"
@@ -13618,7 +13648,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1":
+"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
@@ -14228,6 +14258,7 @@ __metadata:
     "@types/node": 20.5.9
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
+    "@types/styled-components": ^5.1.28
     "@typescript-eslint/eslint-plugin": ^6.5.0
     axios: ^1.5.1
     babel-jest: ^29.6.4
