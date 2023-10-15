@@ -8,12 +8,9 @@ import BottomNavigation from '@/components/common/molecules/BottomNavigation';
 import Navigation from '@/components/common/molecules/Navigation';
 import TitleHeader from '@/components/common/molecules/TitleHeader';
 import BarcodeCard from '@/components/common/organisms/BarcodeCard';
-import ScheduleInfoCard from '@/components/common/organisms/home/ScheduleInfoCard';
-import Carousel from '@/components/common/templates/Carousel';
-import {
-  categoryData,
-  scheduleInfoListData,
-} from '@/constants/data';
+import ScheduleList from '@/components/common/templates/home/ScheduleList';
+import { categoryData } from '@/constants/data';
+import useGetAllPerformances from '@/hooks/Performances/useGetPerformances';
 import useBarcode from '@/hooks/useBarcode';
 import { flexbox } from '@/styles/mixin';
 
@@ -29,17 +26,20 @@ const BarcodeContainer = styled.article`
 export default function Home() {
   const { barcodeDataURL, expiryDate, regenerateBarcode } =
     useBarcode();
+
   return (
     <HomePageWrapper>
       <Navigation />
-      <BarcodeContainer>
-        <BarcodeCard />
-        <Barcode
-          barcodeDataURL={barcodeDataURL}
-          expiryDate={expiryDate}
-          regenerateBarcode={regenerateBarcode}
-        />
-      </BarcodeContainer>
+      {barcodeDataURL && (
+        <BarcodeContainer>
+          <BarcodeCard />
+          <Barcode
+            barcodeDataURL={barcodeDataURL}
+            expiryDate={expiryDate}
+            regenerateBarcode={regenerateBarcode}
+          />
+        </BarcodeContainer>
+      )}
       <Grid rows={2} columns={3}>
         {categoryData.map((category) => (
           <Button buttonSize="small" key={category}>
@@ -56,26 +56,7 @@ export default function Home() {
             console.log('go ticketing router')
           }
         />
-        <Carousel
-          items={scheduleInfoListData.map(
-            ({
-              id,
-              bgPath,
-              ticketOpenDate,
-              title,
-              performanceDate,
-            }) => (
-              <ScheduleInfoCard
-                key={id}
-                id={id}
-                bgPath={bgPath}
-                ticketOpenDate={ticketOpenDate}
-                title={title}
-                performanceDate={performanceDate}
-              />
-            ),
-          )}
-        />
+        <ScheduleList />
       </article>
       <BottomNavigation />
     </HomePageWrapper>

@@ -31,6 +31,7 @@ const config: StorybookConfig = {
 
     // Add alias for iconDist directory
     config.resolve.alias = {
+      '@/apis': path.resolve(__dirname, '../src/apis/'),
       '@/assets': path.resolve(__dirname, '../src/assets/'),
       '@/components': path.resolve(
         __dirname,

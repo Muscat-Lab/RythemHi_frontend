@@ -1,6 +1,6 @@
+import { useQuery } from '@tanstack/react-query';
 import type { Metadata } from 'next';
 import React from 'react';
-import { useQuery } from 'react-query';
 import styled from 'styled-components';
 
 import useCount from '@/store/useCount';
@@ -38,7 +38,7 @@ export default function RootLayout() {
   const { data, error, isLoading } = useQuery<
     FetchDataResponse,
     Error
-  >('fetchData', fetchData);
+  >(['fetchData'], fetchData);
 
   if (isLoading) return <p>Loading...</p>;
 
