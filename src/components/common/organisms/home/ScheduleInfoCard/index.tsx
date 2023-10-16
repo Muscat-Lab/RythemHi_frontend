@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import Icon from '@/components/common/atoms/Icon';
 import Text from '@/components/common/atoms/Text';
+import CircleIcon from '@/components/common/molecules/CircleIcon';
 import { flexbox } from '@/styles/mixin';
 
 interface ScheduleInfoCardProps {
@@ -44,12 +45,6 @@ const IconBox = styled.div`
   gap: 4px;
 `;
 
-const IconInner = styled.div`
-  ${flexbox({ jc: 'center', ai: 'center' })}
-  border-radius: 32px;
-  background: #1e1e1e;
-`;
-
 const ScheduleInfoCard = ({
   id,
   bgPath,
@@ -77,20 +72,20 @@ const ScheduleInfoCard = ({
         </Text>
       </TextBox>
       <IconBox>
-        <IconInner>
+        <CircleIcon>
           <Icon
             iconName="bellIcon"
             iconSize="small"
             color="white"
           />
-        </IconInner>
-        <IconInner>
+        </CircleIcon>
+        <CircleIcon>
           <Icon
             iconName="heartIcon"
             iconSize="small"
             color="white"
           />
-        </IconInner>
+        </CircleIcon>
       </IconBox>
     </ContentBox>
   </ScheduleInfoCardWrapper>
