@@ -21,7 +21,7 @@ import Favorite from '.';
 - FavoriteProps
   text?: string;  // 들어갈 내용
 background?: string;  // 선택한 아티스트의 사진이 있을 경우 해당 url주소
-favType?: FavType;  // small에서 선택여부 'active' , 'ready'으로, large 에선 'selected', 'none'으로!
+favType?: FavType;  // 'active', 'none'으로 주었습니다!
 sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
 ```
 
@@ -36,7 +36,7 @@ sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
 - Favorite 예제입니다.
 
 <Canvas>
-  <Favorite sizeType="small" favType="ready" />
+  <Favorite sizeType="small" favType="none" />
   <Favorite
     text="Aminé"
     favType="active"
@@ -51,7 +51,7 @@ sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
   />
   <Favorite
     text="Aminé"
-    favType="selected"
+    favType="active"
     sizeType="large"
     background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
   />

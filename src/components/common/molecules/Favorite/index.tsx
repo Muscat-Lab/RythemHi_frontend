@@ -6,7 +6,7 @@ import { flexbox } from '@/styles/mixin';
 import Icon from '../../atoms/Icon';
 import Text from '../../atoms/Text';
 
-type FavType = 'active' | 'ready' | 'none' | 'selected';
+type FavType = 'active' | 'none';
 type SizeType = 'small' | 'medium' | 'large';
 
 interface FavoriteProps {
@@ -19,11 +19,6 @@ interface BackgroundProps {
   background?: string;
   sizeType: SizeType;
 }
-
-// const heights = ['200px', '300px', '400px'];
-
-// const randomHeight = () =>
-//   heights[Math.floor(Math.random() * heights.length)];
 
 const FavoriteWrapper = styled.div<FavoriteProps>`
   width: ${({ sizeType }) => {
@@ -51,18 +46,25 @@ const FavoriteWrapper = styled.div<FavoriteProps>`
   }};
   border-radius: 10px;
 
-  border: ${({ favType }) => {
-    switch (favType) {
-      case 'active':
-        return '1.5px solid #fff';
-      case 'ready':
-        return '1.5px dashed #fff';
-      case 'selected':
-        return '2.5px solid #fff';
-      case 'none':
-        return '2.5px solid transparent';
-      default:
-        return '2.5px solid transparent';
+  border: ${({ favType, sizeType }) => {
+    if (sizeType === 'small') {
+      switch (favType) {
+        case 'active':
+          return '1.5px solid #fff';
+        case 'none':
+          return '1.5px dashed #fff';
+        default:
+          return '2.5px solid transparent';
+      }
+    } else {
+      switch (favType) {
+        case 'active':
+          return '2.5px solid #fff';
+        case 'none':
+          return '2.5px solid transparent';
+        default:
+          return '2.5px solid transparent';
+      }
     }
   }};
   box-sizing: border-box;
@@ -128,13 +130,9 @@ const Favorite = ({
   };
   const handleFavorite = () => {
     // TODO (좋아요 선택)
-    if (isFavoriteActive !== 'ready') {
-      if (isFavoriteActive === 'selected') {
-        setIsFavoriteActive('none');
-      } else {
-        setIsFavoriteActive('selected');
-      }
-    }
+    setIsFavoriteActive((prevFavType) =>
+      prevFavType === 'active' ? 'none' : 'active',
+    );
   }; //
   return (
     <FavoriteWrapper
