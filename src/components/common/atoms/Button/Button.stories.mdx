@@ -16,7 +16,8 @@ interface ButtonProps {
   children: React.ReactNode;
   // button의 사이즈 단위! 'small', 'medium','large'가 있다.
   inputSize: SizeType;
-  // 기본 상태 or 입력 성공 or 실패에 따라 background-color가 다르게 입혀진다. 'default', 'success', 'error'가 있다.
+  // 기본 상태 or 입력 성공 or 실패에 따라 background-color가 다르게 입혀진다.
+  //success, error,close,kakao,naver,apple, default 가 있다.
   variant?: VariantType;
   // Custom class
   className?: string;
@@ -28,19 +29,11 @@ interface ButtonProps {
 <h4>* 버튼 예시 *</h4>
 
 <div>
+  <Button buttonSize="large" boldType="bold">
+    동의하고 알림받기
+  </Button>
+    <Button buttonSize="large" variant="close" boldType="bold">
+    동의하고 알림받기
+  </Button>
 
-  <Button
-    buttonSize="large"
-    textSize="medium"
-    text="동의하고 알림받기"
-    textType="bold"
-  />
-  <div style={{ marginTop: '10px' }}></div>
-  <Button
-    buttonSize="large"
-    variant="close"
-    text="닫기"
-    textSize="medium"
-    textType="bold"
-  />
 </div>

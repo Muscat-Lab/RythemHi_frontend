@@ -15,12 +15,9 @@ const meta: Meta<typeof Button> = {
 export default meta;
 
 const SignInButton = () => (
-  <Button
-    buttonSize="large"
-    textSize="medium"
-    text="동의하고 알림받기"
-    textType="bold"
-  />
+  <Button buttonSize="large" boldType="bold">
+    동의하고 알림받기
+  </Button>
 );
 
 export const SignIn = {

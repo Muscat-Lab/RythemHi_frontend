@@ -1,11 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { flexbox } from '@/styles/mixin';
-import { SVGIconKeys } from '@/utils/iconMap';
-
-import Text from '../Text';
-
 type SizeType = 'small' | 'medium' | 'large';
 type BoldType = 'light' | 'normal' | 'bold';
 
@@ -13,16 +8,17 @@ type VariantType =
   | 'success'
   | 'error'
   | 'close'
+  | 'kakao'
+  | 'naver'
+  | 'apple'
   | 'default';
 
 interface ButtonProps {
+  children: React.ReactNode;
   buttonSize: SizeType;
   variant?: VariantType;
+  boldType: BoldType;
   className?: string;
-  text: string;
-  textType?: BoldType;
-  textSize: string;
-  iconKey?: SVGIconKeys;
 }
 
 const StyledButton = styled.button<ButtonProps>`
@@ -68,20 +64,28 @@ const StyledButton = styled.button<ButtonProps>`
         return '#F00';
       case 'close':
         return '#000';
+      case 'kakao':
+        return '#FEE500';
+      case 'naver':
+        return '#03C75A';
+      case 'apple':
+        return '#FFF';
       default:
         return '#4845CC';
     }
   }};
 
-  font-size: ${({ variant }) => {
-    switch (variant) {
-      default:
-        return '18px';
-    }
-  }};
+  font-size: 18px;
+  color: #fff;
 
-  font-weight: ${({ variant }) => {
-    switch (variant) {
+  font-weight: ${({ boldType }) => {
+    switch (boldType) {
+      case 'light':
+        return '300';
+      case 'normal':
+        return '500';
+      case 'bold':
+        return '700';
       default:
         return '700';
     }
@@ -96,17 +100,12 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const TextWrapper = styled.div`
-  ${flexbox({ dir: 'column', jc: 'center', ai: 'center' })}
-`;
-
 const Button = ({
-  text,
-  textType,
+  children,
   buttonSize,
   variant = 'default',
   className,
-  iconKey,
+  boldType,
   ...buttonAttr
 }: ButtonProps &
   React.ButtonHTMLAttributes<HTMLButtonElement>) => (
@@ -114,18 +113,10 @@ const Button = ({
     buttonSize={buttonSize}
     variant={variant}
     className={className}
-    text={text}
+    boldType={boldType}
     {...buttonAttr}
   >
-    <TextWrapper>
-      <Text
-        textSize="small"
-        textType={textType}
-        textColor="#fff"
-      >
-        {text}
-      </Text>
-    </TextWrapper>
+    {children}
   </StyledButton>
 );
 
