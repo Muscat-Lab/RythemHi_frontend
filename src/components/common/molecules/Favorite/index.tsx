@@ -151,7 +151,7 @@ const Favorite = ({
             favType={isFavoriteActive}
             sizeType={sizeType}
           >
-            {sizeType === 'small' ? (
+            {sizeType === 'small' && (
               <IconWrapper>
                 <Icon
                   iconName="close"
@@ -160,7 +160,7 @@ const Favorite = ({
                   onClick={() => handleCloseFavorite()}
                 />
               </IconWrapper>
-            ) : undefined}
+            )}
             <TextWrapper>
               <Text
                 variant="title"
