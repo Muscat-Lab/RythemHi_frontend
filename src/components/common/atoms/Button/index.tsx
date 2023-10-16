@@ -63,7 +63,7 @@ const StyledButton = styled.button<ButtonProps>`
       case 'error':
         return '#F00';
       case 'close':
-        return '#000';
+        return '#111';
       case 'kakao':
         return '#FEE500';
       case 'naver':
