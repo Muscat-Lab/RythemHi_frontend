@@ -1,8 +1,8 @@
-import { AppProps } from 'next/app';
 import {
   QueryClient,
   QueryClientProvider,
-} from 'react-query';
+} from '@tanstack/react-query';
+import { AppProps } from 'next/app';
 
 import Layout from '@/components/common/templates/Layout';
 

@@ -6,21 +6,22 @@ import CircleIcon from '@/components/common/molecules/CircleIcon';
 import { flexbox } from '@/styles/mixin';
 
 interface ScheduleInfoCardProps {
-  id: number;
-  bgPath: string;
+  id: string;
+  posterImageUrl: null | string;
   ticketOpenDate: string;
   title: string;
   performanceDate: string;
 }
 
 const ScheduleInfoCardWrapper = styled.div<{
-  bgPath: string;
+  posterImageUrl: null | string;
 }>`
   width: 190px;
   height: 200px;
   padding: 12px;
 
-  background-image: url(${({ bgPath }) => bgPath});
+  background-image: url(${({ posterImageUrl }) =>
+    posterImageUrl});
   background-size: cover;
   border-radius: 10px;
   cursor: pointer;
@@ -47,14 +48,14 @@ const IconBox = styled.div`
 
 const ScheduleInfoCard = ({
   id,
-  bgPath,
+  posterImageUrl,
   ticketOpenDate,
   title,
   performanceDate,
 }: ScheduleInfoCardProps) => (
   <ScheduleInfoCardWrapper
     data-id={id}
-    bgPath={bgPath}
+    posterImageUrl={posterImageUrl}
     // onClick={() => console.log(`go ${id} router`)}
   >
     <TopBox>
