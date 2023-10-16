@@ -19,7 +19,9 @@ export type SVGIconKeys =
   | 'bellIcon'
   | 'heartIcon'
   | 'plus'
-  | 'close';
+  | 'close'
+  | 'kakao'
+  | 'naver';
 // 필요한 키들을 추가
 
 const SVG_ICON_MAP = {
@@ -46,6 +48,8 @@ const SVG_ICON_MAP = {
   heartIcon: lazy(() => import('@/assets/icon/heart.svg')),
   plus: lazy(() => import('@/assets/icon/plus.svg')),
   close: lazy(() => import('@/assets/icon/close.svg')),
+  kakao: lazy(() => import('@/assets/icon/kakao.svg')),
+  naver: lazy(() => import('@/assets/icon/naver.svg')),
 };
 
 export default SVG_ICON_MAP;
