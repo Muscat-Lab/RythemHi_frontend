@@ -2,12 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 type SizeType = 'small' | 'medium' | 'large';
-type VariantType = 'success' | 'error' | 'default';
+type BoldType = 'light' | 'normal' | 'bold';
+
+type VariantType =
+  | 'success'
+  | 'error'
+  | 'close'
+  | 'kakao'
+  | 'naver'
+  | 'apple'
+  | 'default';
 
 interface ButtonProps {
   children: React.ReactNode;
   buttonSize: SizeType;
   variant?: VariantType;
+  boldType: BoldType;
   className?: string;
 }
 
@@ -19,7 +29,6 @@ const StyledButton = styled.button<ButtonProps>`
   border: none;
   outline: none;
   border-radius: 8px;
-  color: #fff;
 
   width: ${({ buttonSize }) => {
     switch (buttonSize) {
@@ -53,10 +62,42 @@ const StyledButton = styled.button<ButtonProps>`
         return 'blue';
       case 'error':
         return '#F00';
+      case 'close':
+        return '#111';
+      case 'kakao':
+        return '#FEE500';
+      case 'naver':
+        return '#03C75A';
+      case 'apple':
+        return '#FFF';
       default:
-        return '#6D12CF';
+        return '#4845CC';
     }
   }};
+
+  font-size: 18px;
+  color: #fff;
+
+  font-weight: ${({ boldType }) => {
+    switch (boldType) {
+      case 'light':
+        return '300';
+      case 'normal':
+        return '500';
+      case 'bold':
+        return '700';
+      default:
+        return '700';
+    }
+  }};
+
+  box-shadow:
+    0px 2px 3px 0px rgba(0, 0, 0, 0.17),
+    0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+
+  &:active {
+    filter: brightness(95%);
+  }
 `;
 
 const Button = ({
@@ -64,6 +105,7 @@ const Button = ({
   buttonSize,
   variant = 'default',
   className,
+  boldType,
   ...buttonAttr
 }: ButtonProps &
   React.ButtonHTMLAttributes<HTMLButtonElement>) => (
@@ -71,6 +113,7 @@ const Button = ({
     buttonSize={buttonSize}
     variant={variant}
     className={className}
+    boldType={boldType}
     {...buttonAttr}
   >
     {children}

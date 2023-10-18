@@ -1,0 +1,59 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
+
+import Favorite from '.';
+
+<Meta title="molecules/Favorite" component={Favorite} />
+
+# Favorite
+
+선호하는 아티스트, 장르를 선택한 경우 하단에 보이는 Favorite 컴포넌트 입니다.
+
+( 테두리가 하얀 색이라 흰 배경에서 테두리는 보이지 않습니다! )
+
+## Props
+
+```ts
+- FavoriteProps
+  text?: string;  // 들어갈 내용
+background?: string;  // 선택한 아티스트의 사진이 있을 경우 해당 url주소
+favType?: FavType;  // 'active', 'none'으로 주었습니다!
+sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
+```
+
+```ts
+- BackgroundProps // background를 구분지었습니다!
+background?: string;  // 선택한 아티스트의 사진이 있을 경우 해당 url주소
+sizeType: SizeType; // 'small', 'medium', 'large'로 사이즈를 구분한다.
+```
+
+### Favorite
+
+- Favorite 예제입니다.
+
+<Canvas>
+  <Favorite sizeType="small" favType="none" />
+  <Favorite
+    text="Aminé"
+    favType="active"
+    sizeType="small"
+    background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
+  />
+  <Favorite text="R&B" sizeType="medium" />
+  <Favorite
+    text="Aminé"
+    sizeType="large"
+    background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
+  />
+  <Favorite
+    text="Aminé"
+    favType="active"
+    sizeType="large"
+    background="https://i.namu.wiki/i/OEKgiG-EKVByxF_x2ZdJ0VyaRCNmv-lGIoMR7fgKvWSP2zARUHOdD-vaHAVr65EKVR6Wy88xdZybivv_MYrIUg.webp"
+  />
+
+</Canvas>

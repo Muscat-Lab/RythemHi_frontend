@@ -5,19 +5,21 @@ import {
 } from '@storybook/testing-library';
 import React from 'react';
 
-import Button from '.';
+import SocialLoginButton from '.';
 
-const meta: Meta<typeof Button> = {
-  title: 'atoms/Button',
-  component: Button,
+const meta: Meta<typeof SocialLoginButton> = {
+  title: 'molecules/SocialLoginButton',
+  component: SocialLoginButton,
 };
 
 export default meta;
 
 const SignInButton = () => (
-  <Button buttonSize="large" boldType="bold">
-    동의하고 알림받기
-  </Button>
+  <SocialLoginButton
+    iconKey="kakao"
+    variant="kakao"
+    text="카카오로 계속하기"
+  />
 );
 
 export const SignIn = {
