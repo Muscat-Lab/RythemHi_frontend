@@ -17,7 +17,7 @@ interface ButtonProps {
   children: React.ReactNode;
   buttonSize: SizeType;
   variant?: VariantType;
-  boldType: BoldType;
+  boldType?: BoldType;
   className?: string;
 }
 
@@ -105,7 +105,7 @@ const Button = ({
   buttonSize,
   variant = 'default',
   className,
-  boldType,
+  boldType = 'normal',
   ...buttonAttr
 }: ButtonProps &
   React.ButtonHTMLAttributes<HTMLButtonElement>) => (

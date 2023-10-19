@@ -21,8 +21,10 @@ import ScheduleInfoCard from '.';
 ```ts
 // 모두 DB에서 관리되어지는 데이터로, 서버로부터 받아온다.
 interface ScheduleInfoCardProps {
+  // 고유 id
+  id: string;
   // 카드(공연) 내의 들어갈 이미지 경로
-  bgPath: string;
+  posterImageUrl: string;
   // 공연 오픈 예정일
   ticketOpenDate: string;
   // 공연 제목
