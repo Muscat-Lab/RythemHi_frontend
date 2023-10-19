@@ -12,10 +12,12 @@ import ScheduleList from '@/components/common/templates/home/ScheduleList';
 import { categoryData } from '@/constants/data';
 import useBarcode from '@/hooks/useBarcode';
 import { flexbox } from '@/styles/mixin';
+import PopularList from '@/components/common/templates/home/PopularList';
 
 const HomePageWrapper = styled.section`
   ${flexbox({ dir: 'column' })}
   gap: 30px;
+  margin-bottom: 80px;
 `;
 
 const BarcodeContainer = styled.article`
@@ -56,6 +58,15 @@ export default function Home() {
           }
         />
         <ScheduleList />
+      </article>
+      <article style={{ width: '100%' }}>
+        <TitleHeader
+          title="지금 인기있는 공연"
+          handleGoToRouter={() =>
+            console.log('go popular router')
+          }
+        />
+        <PopularList />
       </article>
       <BottomNavigation />
     </HomePageWrapper>
