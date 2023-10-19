@@ -73,14 +73,14 @@ const ScheduleInfoCard = ({
         </Text>
       </TextBox>
       <IconBox>
-        <CircleIcon>
+        <CircleIcon circleIconSize="small" isActive={false}>
           <Icon
             iconName="bellIcon"
             iconSize="small"
             color="white"
           />
         </CircleIcon>
-        <CircleIcon>
+        <CircleIcon circleIconSize="small" isActive={false}>
           <Icon
             iconName="heartIcon"
             iconSize="small"
