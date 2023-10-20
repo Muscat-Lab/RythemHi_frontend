@@ -10,7 +10,6 @@ interface LayoutProps {
 const LayoutWrapper = styled.section`
   ${flexbox({ jc: 'center', ai: 'center' })}
   width: 390px;
-  padding: 0 20px;
   margin: 0 auto;
 `;
 

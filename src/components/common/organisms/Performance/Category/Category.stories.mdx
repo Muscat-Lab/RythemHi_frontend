@@ -1,0 +1,23 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
+
+import Category from '.';
+
+<Meta title="organisms/Category" component={Category} />
+
+# Category
+
+Performance 페이지 내에서 사용되어지는 맨 상단의 InfoTag들로 이루어지는 카테고리 영역.
+
+## Props
+
+```ts
+interface CategoryProps {
+  // 카테고리 데이터
+  data: string[];
+}
+```
