@@ -21,11 +21,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-    /* Remove list styles on ul, ol elements */
-  ul, ol {
-    list-style: none;
-  }
-
 
   /* A elements that don't have a class get default styles */
   a:not([class]) {
