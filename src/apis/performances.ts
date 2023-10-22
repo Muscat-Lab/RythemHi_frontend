@@ -11,3 +11,15 @@ export const getAllPerformances = async () => {
     throw new Error('get all performances data fail');
   }
 };
+
+export const getPerformanceNotice = async (id: string) => {
+  try {
+    const response = await axios.get(
+      `${process.env.API_URL}/performanceContents?performanceId=${id}`,
+    );
+
+    return response.data.performanceContents;
+  } catch (err) {
+    throw new Error('get performance Notice data fail');
+  }
+};
