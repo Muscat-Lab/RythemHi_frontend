@@ -9,3 +9,12 @@ export type PerformanceType = {
   runningTime: string;
   title: string;
 };
+
+export type CastingType = {
+  id: string;
+  performerName: string;
+  performerId: string;
+  roleName: string;
+  roleId: string;
+  profileUrl: string;
+};

@@ -35,3 +35,15 @@ export const getPerformanceNotice = async (id: string) => {
     throw new Error('get performance Notice data fail');
   }
 };
+
+export const getCastings = async (id: string) => {
+  try {
+    const response = await axios.get(
+      `${process.env.API_URL}/castings?performanceId=${id}`,
+    );
+
+    return response.data.castings;
+  } catch (err) {
+    throw new Error('get castings data fail');
+  }
+};
