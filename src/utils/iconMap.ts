@@ -21,7 +21,9 @@ export type SVGIconKeys =
   | 'plus'
   | 'close'
   | 'kakao'
-  | 'naver';
+  | 'naver'
+  | 'calendar'
+  | 'place';
 // 필요한 키들을 추가
 
 const SVG_ICON_MAP = {
@@ -50,6 +52,10 @@ const SVG_ICON_MAP = {
   close: lazy(() => import('@/assets/icon/close.svg')),
   kakao: lazy(() => import('@/assets/icon/kakao.svg')),
   naver: lazy(() => import('@/assets/icon/naver.svg')),
+  calendar: lazy(
+    () => import('@/assets/icon/calendar.svg'),
+  ),
+  place: lazy(() => import('@/assets/icon/place.svg')),
 };
 
 export default SVG_ICON_MAP;

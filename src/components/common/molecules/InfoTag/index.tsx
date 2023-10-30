@@ -35,7 +35,9 @@ const InfoTag = ({
         color={color}
       />
     )}
-    <Text textSize="small">{text}</Text>
+    <Text textSize="small" textColor={color}>
+      {text}
+    </Text>
   </InfoTagWrapper>
 );
 

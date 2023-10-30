@@ -1,0 +1,44 @@
+import {
+  Meta,
+  Canvas,
+  ArgsTable,
+  Story,
+} from '@storybook/blocks';
+import { action } from '@storybook/addon-actions';
+
+import Tabs from '.';
+
+<Meta title="molecules/Tabs" component={Tabs} />
+
+# Tabs
+
+전반적인 예매 화면에서 사용되어지는 Tabs 컴포넌트입니다.
+
+## Props
+
+```ts
+interface TabsProps {
+  // tabs 컴포넌트를 이루는 아이템항목들
+  tabItems: string[];
+  // 현재 클릭된 tab의 idx
+  activeIdx: number;
+  // tab을 클릭했을때 실행되는 콜백함수
+  onClick: () => void;
+}
+```
+
+### Tabs
+
+- Tabs 예제입니다.
+
+<Canvas>
+  <Tabs
+    tabItems={[
+      '공연상세정보',
+      '공연장정보',
+      '취소 및 환불규정',
+    ]}
+    activeIdx={2}
+    onClick={action('clicked tab')}
+  />
+</Canvas>

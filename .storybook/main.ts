@@ -21,6 +21,11 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
 
+  env: (config) => ({
+    ...config,
+    API_URL: 'http://test.tito.run',
+  }),
+
   webpackFinal: async (config) => {
     config.resolve = config.resolve || {};
 
@@ -50,6 +55,13 @@ const config: StorybookConfig = {
 
     config.module = config.module || { rules: [] };
     config.module.rules = config.module.rules || [];
+
+    // const envConfig =
+    //   process.env.NODE_ENV === 'development'
+    //     ? path.join(__dirname, './env/.env.dev')
+    //     : path.join(__dirname, './env/.env.prod');
+
+    // dotenv.config({ path: envConfig });
 
     config.module.rules = [
       ...config.module.rules.map((rule) => {
