@@ -7,7 +7,7 @@ import Icon from '../../atoms/Icon';
 import Text from '../../atoms/Text';
 
 type FavType = 'active' | 'none';
-type SizeType = 'small' | 'medium' | 'large';
+type SizeType = 'small' | 'medium' | 'large' | 'extraLarge';
 
 interface FavoriteProps {
   text?: string;
@@ -39,6 +39,8 @@ const FavoriteWrapper = styled.div<FavoriteProps>`
       case 'medium':
         return '134px';
       case 'large':
+        return '200px';
+      case 'extraLarge':
         return '300px';
       default:
         return '166px';
@@ -139,7 +141,7 @@ const Favorite = ({
       favType={isFavoriteActive}
       sizeType={sizeType}
       onClick={() =>
-        sizeType !== 'small' ? handleFavorite() : undefined
+        sizeType !== 'small' && handleFavorite()
       }
     >
       <BackgroundContainer
@@ -164,7 +166,9 @@ const Favorite = ({
             <TextWrapper>
               <Text
                 variant="title"
-                textSize={sizeType}
+                textSize={
+                  sizeType === 'medium' ? 'medium' : 'large'
+                }
                 textColor="#fff"
                 textType="bold"
               >
