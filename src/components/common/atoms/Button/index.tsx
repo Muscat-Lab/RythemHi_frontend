@@ -37,7 +37,7 @@ const StyledButton = styled.button<ButtonProps>`
       case 'medium':
         return '200px';
       case 'large':
-        return '300px';
+        return '330px';
       default:
         return '100px';
     }
